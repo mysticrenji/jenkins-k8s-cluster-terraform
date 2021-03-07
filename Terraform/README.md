@@ -1,16 +1,16 @@
-## Azure Service Principal Creation
+## 1.Azure Service Principal Creation
 az ad sp create-for-rbac -n "SP" --role Owner --scopes /subscriptions/{SubID}/resourceGroups/{ResourceGroup1}  </br>
 
-## Export Service principal credentials from the query above
+## 2.Export Service principal credentials from the query above
 export AZURE_SUBSCRIPTION_ID=''</br>
 export AZURE_TENANT_ID=''</br>
 export AZURE_CLIENT_ID=''</br>
 export AZURE_CLIENT_SECRET=''</br>
 
-## Create Azure Blob Storage to act as Terraform Remote Backend
+## 3.Create Azure Blob Storage to act as Terraform Remote Backend
 Edit the blobstoragecreation.sh and update values, then execute. Save the results</br>
 
-## Create Key Vault to store Azure storage key for the blob account access
+## 4.Create Key Vault to store Azure storage key for the blob account access
 az keyvault create --name "terraformblobkey" --resource-group "rg-experiments-sea" --location "EastUS" </br>
 az keyvault secret set --vault-name "terraformblobkey" --name "blobkey" --value "#StorageAccountKey#" </br>
 
@@ -18,7 +18,7 @@ The value from the key vault can be retrieved using AzCLI command and it gets ex
 
 export ARM_ACCESS_KEY=$(az keyvault secret show --name blobkey --vault-name terraformblobkey --query value -o tsv) </br>
 
-## Execute Terraform script in sequence
+## 5.Execute Terraform script in sequence
 1. terraform init
 2. terraform plan
 3. terraform apply -var="key=value"
