@@ -13,14 +13,23 @@ variable "location" {
   default     = "Southeast Asia"
 }
 
-
-variable "dns" {
-  description = "DNS Prefix"
-  default     = "garage"
+variable "prefix" {
+  description = "A prefix used for all resources in this example"
+  default     = "terraform-garage"
 }
 
+# variable "client_app_id" {
+#   description = "The Client app ID of the AKS client application"
+# }
 
-variable "clustername" {
-  description = "clustername for aks"
-  default     = "aks-garage-terraform"
-}
+# variable "server_app_id" {
+#   description = "The Server app ID of  the AKS server application"
+# }
+
+# variable "server_app_secret" {
+#   description = "The secret created for AKS server application"
+# }
+
+# variable "tenant_id" {
+#   description = "The Azure AD tenant id "
+# }
