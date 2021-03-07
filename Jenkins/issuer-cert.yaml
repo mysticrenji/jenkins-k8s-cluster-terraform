@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: devops-cert-jenkins
+  namespace: jenkins
+spec:
+  secretName: devops-cert-jenkins
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: jenkins-devops.southeastasia.cloudapp.azure.com
+  dnsNames:
+  - jenkins-devops.southeastasia.cloudapp.azure.com
