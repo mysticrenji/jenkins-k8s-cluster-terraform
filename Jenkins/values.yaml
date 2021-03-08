@@ -1,83 +1,8 @@
-clusterZone: "cluster.local"
-renderHelmLabels: true
 controller:
-  componentName: "jenkins-controller"
-  image: "jenkins/jenkins"
-  tag: "2.263.4"
-  imagePullPolicy: "Always"
-  disableRememberMe: false
-  numExecutors: 0
-  executorMode: "NORMAL"
-  markupFormatter: plainText
   adminSecret: true
-  hostNetworking: false
-  useSecurity: true
   adminUser: admin
   adminPassword: "@wesome!1"
   numExecutors: 0
-  admin:
-    existingSecret: ""
-    userKey: jenkins-admin-user
-    passwordKey: jenkins-admin-password
-  jenkinsHome: "/var/jenkins_home"
-  jenkinsRef: "/usr/share/jenkins/ref"
-  jenkinsWar: "/usr/share/jenkins/jenkins.war"
-  resources:
-    requests:
-      cpu: "50m"
-      memory: "256Mi"
-    limits:
-      cpu: "2000m"
-      memory: "4096Mi"
-  usePodSecurityContext: true
-  runAsUser: 1000
-  fsGroup: 1000
-  serviceType: ClusterIP
-
-  healthProbes: false
-  probes:
-    startupProbe:
-      httpGet:
-        path: '{{ default "" .Values.controller.jenkinsUriPrefix }}/login'
-        port: http
-      periodSeconds: 10
-      timeoutSeconds: 5
-      failureThreshold: 12
-    livenessProbe:
-      failureThreshold: 5
-      httpGet:
-        path: '{{ default "" .Values.controller.jenkinsUriPrefix }}/login'
-        port: http
-      periodSeconds: 10
-      timeoutSeconds: 5
-      # If Startup Probe is not supported on your Kubernetes cluster, you might want to use "initialDelaySeconds" instead.
-      # It delays the initial liveness probe while Jenkins is starting
-      # initialDelaySeconds: 60
-    readinessProbe:
-      failureThreshold: 3
-      httpGet:
-        path: '{{ default "" .Values.controller.jenkinsUriPrefix }}/login'
-        port: http
-      periodSeconds: 10
-      timeoutSeconds: 5
-      # If Startup Probe is not supported on your Kubernetes cluster, you might want to use "initialDelaySeconds" instead.
-      # It delays the initial readyness probe while Jenkins is starting
-      # initialDelaySeconds: 60
-  agentListenerPort: 50000
-  agentListenerHostPort:
-  agentListenerNodePort:
-  disabledAgentProtocols:
-    - JNLP-connect
-    - JNLP2-connect
-  csrf:
-    defaultCrumbIssuer:
-      enabled: true
-      proxyCompatability: true
-  agentListenerServiceType: "ClusterIP"
-  agentListenerLoadBalancerIP:
-  agentListenerServiceAnnotations: {}
-  loadBalancerSourceRanges:
-  - 0.0.0.0/0
   installPlugins:
     - configuration-as-code:latest
     - kubernetes:latest
@@ -101,13 +26,17 @@ controller:
     - docker-workflow:latest
     - command-launcher:latest
     - github-branch-source:latest
-
   overwritePlugins: true
   ingress:
     enabled: true
     hostName: jenkins-devops.southeastasia.cloudapp.azure.com
+    tls:
+    - secretName: letsencrypt-traefik
+      hosts:
+        - jenkins-devops.southeastasia.cloudapp.azure.com
     annotations:
       kubernetes.io/ingress.class: traefik
+      kubernetes.io/ssl-redirect: "true"
 persistence:
   enabled: true
   storageClass: ""
@@ -121,10 +50,3 @@ persistence:
   #  - mountPath: /var/nothing
   #    name: nothing
   #    readOnly: true
-
-rbac:
-  create: true
-  readSecrets: false
-
-serviceAccount:
-  create: true
