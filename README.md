@@ -21,5 +21,14 @@ First we need to provision a kubernetes cluster. For the POC, I have used the AK
  helm install jenkins  jenkins/jenkins  --values values.yaml -n jenkins
  ```
 ## 3. Provision SonarQube on Kubernetes using Helm Charts
+Sonarqube is provisioned using helm charts. The values are customized as well. Please execute below commands
+```
+cd SonarQube
+helm repo add oteemocharts https://oteemo.github.io/charts/
+helm repo update
+kubectl create namespace sonarqube
+helm install sonarqube -f sonarqube.yaml  oteemocharts/sonarqube -n sonarqube
+```
 
 ## 4. Create Jenkins Declarative Pipeline
+The pipeline has been written declaratively in the form of Jenkinsfile
