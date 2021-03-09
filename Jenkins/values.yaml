@@ -31,12 +31,12 @@ controller:
     enabled: true
     hostName: jenkins-devops.southeastasia.cloudapp.azure.com
     tls:
-    - secretName: letsencrypt-traefik
+    - secretName: devops-cert-jenkins
       hosts:
         - jenkins-devops.southeastasia.cloudapp.azure.com
     annotations:
-      kubernetes.io/ingress.class: traefik
-      kubernetes.io/ssl-redirect: "true"
+      kubernetes.io/ingress.class: nginx
+      #kubernetes.io/ssl-redirect: "true"
 persistence:
   enabled: true
   storageClass: ""
