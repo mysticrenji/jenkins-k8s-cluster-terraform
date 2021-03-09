@@ -27,7 +27,7 @@ cd SonarQube
 helm repo add oteemocharts https://oteemo.github.io/charts/
 helm repo update
 kubectl create namespace sonarqube
-helm install sonarqube -f sonarqube.yaml  oteemocharts/sonarqube -n sonarqube
+helm install sonarqube -f values.yaml  oteemocharts/sonarqube -n sonarqube
 ```
 
 ## 4. Create Jenkins Declarative Pipeline
