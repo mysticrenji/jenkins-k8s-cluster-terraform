@@ -1,5 +1,11 @@
 # Jenkins running on AKS provisioned using Terraform
 
+## Pre-requisites
+* Docker
+* Kubernetes(AKS)
+* Terraform
+* Helm
+
 ## 1. Provision Kubernetes Infrastruructure using Terraform
 First we need to provision a kubernetes cluster. For the POC, I have used the AKS and provisioned it using Terraform. The complete steps are mentioned in the **Readme.md** under Terraform folder
 
@@ -37,4 +43,19 @@ Token Generation
 ![Alt text](./Sonarqube/Admins.png?raw=true "SonarToken")
 
 ## 4. Create Jenkins Declarative Pipeline
-The pipeline has been written declaratively in the form of Jenkinsfile
+The pipeline has been written declaratively in the form of Jenkinsfile. The pipeline gets the source code from git repo and build simple a Java App inside a Maven container.
+
+## To do List
+* Add Master and Worker node monitoring using Prometheus and Grafana
+* Add linting and tests for Terraform
+* Inject 3rd party library scan using OWASP Dependency Check
+* Add automated penentration testing after the deployment using OWASP ZAP
+* Add extra layer of security by adding Approval Gates in the pipeline before the deployment
+* Push the generated artifacts to external artifact repository such as JFrog, Sonar Nexus
+
+## References
+1. https://kubernetes.io/docs/home/
+2. https://docs.microsoft.com/en-us/azure/aks/ingress-basic
+3. https://www.terraform.io/intro/index.html
+4. https://helm.sh/docs/
+5. https://artifacthub.io/
