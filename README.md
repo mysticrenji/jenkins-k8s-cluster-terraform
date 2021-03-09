@@ -23,7 +23,7 @@ First we need to provision a kubernetes cluster. For the POC, I have used the AK
 ## 3. Provision SonarQube on Kubernetes using Helm Charts
 Sonarqube is provisioned using helm charts. The values are customized as well. Please execute below commands
 ```
-cd SonarQube
+cd Sonarqube
 helm repo add oteemocharts https://oteemo.github.io/charts/
 helm repo update
 kubectl create namespace sonarqube
