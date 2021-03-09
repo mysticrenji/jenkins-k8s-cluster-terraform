@@ -33,5 +33,8 @@ Please note on configuring sonarqube token in Jenkins. Token can be created from
 The section can be found in Jenkins- >Configure System
 ![Alt text](./Sonarqube/SonarQube.png?raw=true "SonarQube")
 
+Token Generation
+![Alt text](./Sonarqube/Admins.png?raw=true "SonarToken")
+
 ## 4. Create Jenkins Declarative Pipeline
 The pipeline has been written declaratively in the form of Jenkinsfile
