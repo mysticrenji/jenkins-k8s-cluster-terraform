@@ -1,6 +1,6 @@
 # Jenkins running on AKS provisioned using Terraform
 
-## Prequisites
+## Pre-requisites
 * Docker
 * Kubernetes(AKS)
 * Terraform
@@ -49,8 +49,9 @@ The pipeline has been written declaratively in the form of Jenkinsfile. The pipe
 * Add Master and Worker node monitoring using Prometheus and Grafana
 * Add linting and tests for Terraform
 * Inject 3rd party library scan using OWASP Dependency Check
-* Add automated unit tests during the build phase. Add automated penentration testing after the deployment using OWASP ZAP
+* Add automated penentration testing after the deployment using OWASP ZAP
 * Add extra layer of security by adding Approval Gates in the pipeline before the deployment
+* Push the generated artifacts to external artifact repository such as JFrog, Sonar Nexus
 
 ## References
 1. https://kubernetes.io/docs/home/
