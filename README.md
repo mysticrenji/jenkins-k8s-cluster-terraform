@@ -1,10 +1,16 @@
 # Jenkins running on AKS provisioned using Terraform
 
+
+Architecture
+![Alt text](./Architecture.png?raw=true "Architecture")
+
+
 ## Pre-requisites
 * Docker
 * Kubernetes(AKS)
 * Terraform
 * Helm
+* Azure Blob Storage
 
 ## 1. Provision Kubernetes Infrastruructure using Terraform
 First we need to provision a kubernetes cluster. For the POC, I have used the AKS and provisioned it using Terraform. The complete steps are mentioned in the **Readme.md** under Terraform folder
