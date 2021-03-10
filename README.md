@@ -1,9 +1,6 @@
 # Jenkins running on AKS provisioned using Terraform
 
-
-Architecture
 ![Alt text](./Architecture.png?raw=true "Architecture")
-
 
 ## Pre-requisites
 * Docker
