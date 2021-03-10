@@ -55,6 +55,7 @@ The pipeline has been written declaratively in the form of Jenkinsfile. The pipe
 * Add automated penentration testing after the deployment using OWASP ZAP
 * Add extra layer of security by adding Approval Gates in the pipeline before the deployment
 * Push the generated artifacts to external artifact repository such as JFrog, Sonar Nexus
+* Make Helm chart for the app for resuability across multiple environments
 
 ## References
 1. https://kubernetes.io/docs/home/
