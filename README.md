@@ -1,4 +1,4 @@
-# Jenkins running on AKS provisioned using Terraform
+# Running Jenkins on AKS provisioned using Terraform
 
 ![Alt text](./Architecture.png?raw=true "Architecture")
 
