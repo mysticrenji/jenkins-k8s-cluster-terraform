@@ -4,7 +4,7 @@ podTemplate(containers: [
 
     node(POD_LABEL) {
         stage('Get a Maven project') {
-            git 'https://github.com/mysticrenji/maven_jenkins.git'
+            git 'https://github.com/mysticrenji/jenkins-k8s-cluster-terraform.git'
             container('maven') {
                 stage('Build a Maven project') {
                  withSonarQubeEnv('SonarQube') {
