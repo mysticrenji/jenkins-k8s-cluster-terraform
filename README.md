@@ -9,7 +9,7 @@
 * Helm
 * Azure Blob Storage
 
-## 1. Provision Kubernetes Infrastruructure using Terraform
+## 1. Provision Kubernetes Infrastructure using Terraform
 First we need to provision a kubernetes cluster. For the POC, I have used the AKS and provisioned it using Terraform. The complete steps are mentioned in the **Readme.md** under Terraform folder
 
 ## 2. Provision Jenkins on Kubernetes using Helm Charts
