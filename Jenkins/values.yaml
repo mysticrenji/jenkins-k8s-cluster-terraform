@@ -1,7 +1,7 @@
 controller:
   adminSecret: true
   adminUser: admin
-  adminPassword: "@wesome!1"
+  adminPassword: "Testing123"
   numExecutors: 0
   installPlugins:
     - configuration-as-code:latest
