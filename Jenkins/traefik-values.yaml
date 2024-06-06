@@ -28,7 +28,7 @@ rbac:
   enabled: true
 acme:
   enabled: true
-  email: "mystickenshin@outlook.com"  # insert your email address here
+  email: "renjithvr11@outlook.com"  # insert your email address here
   staging: false
   challengeType: tls-alpn-01
 ssl:
